@@ -184,7 +184,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ServisEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ServisEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Arizas" EntityType="Self.Ariza" />
           <EntitySet Name="Cihazs" EntityType="Self.Cihaz" />
           <EntitySet Name="Musterilers" EntityType="Self.Musteriler" />
@@ -207,7 +207,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ServisModelStoreContainer" CdmEntityContainer="ServisEntities">
+        <EntityContainerMapping StorageEntityContainer="ServisModelStoreContainer" CdmEntityContainer="ServisEntities1">
           <EntitySetMapping Name="Arizas">
             <EntityTypeMapping TypeName="ServisModel.Ariza">
               <MappingFragment StoreEntitySet="Ariza">

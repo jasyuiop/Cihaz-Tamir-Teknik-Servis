@@ -13,10 +13,10 @@ namespace Cihaz_Tamir_Teknik_Servis_Programi
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ServisEntities : DbContext
+    public partial class ServisEntities1 : DbContext
     {
-        public ServisEntities()
-            : base("name=ServisEntities")
+        public ServisEntities1()
+            : base("name=ServisEntities1")
         {
         }
     

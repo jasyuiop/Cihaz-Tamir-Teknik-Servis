@@ -73,8 +73,32 @@
     <Compile Include="Ariza.cs">
       <DependentUpon>ServisEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="ArizaBilgileriniDuzenleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArizaBilgileriniDuzenleForm.Designer.cs">
+      <DependentUpon>ArizaBilgileriniDuzenleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ArizaTanimlaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArizaTanimlaForm.Designer.cs">
+      <DependentUpon>ArizaTanimlaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cihaz.cs">
       <DependentUpon>ServisEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CihazBilgileriniDuzenleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CihazBilgileriniDuzenleForm.Designer.cs">
+      <DependentUpon>CihazBilgileriniDuzenleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CihazTanimlaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CihazTanimlaForm.Designer.cs">
+      <DependentUpon>CihazTanimlaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -82,11 +106,35 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="MusteriBilgileriniDuzenleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MusteriBilgileriniDuzenleForm.Designer.cs">
+      <DependentUpon>MusteriBilgileriniDuzenleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Musteriler.cs">
       <DependentUpon>ServisEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="MusteriTanimlaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MusteriTanimlaForm.Designer.cs">
+      <DependentUpon>MusteriTanimlaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Parca.cs">
       <DependentUpon>ServisEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ParcaBilgileriniDuzenleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ParcaBilgileriniDuzenleForm.Designer.cs">
+      <DependentUpon>ParcaBilgileriniDuzenleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParcaTanimlaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ParcaTanimlaForm.Designer.cs">
+      <DependentUpon>ParcaTanimlaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -105,6 +153,33 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ServisEntity.edmx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ArizaBilgileriniDuzenleForm.resx">
+      <DependentUpon>ArizaBilgileriniDuzenleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ArizaTanimlaForm.resx">
+      <DependentUpon>ArizaTanimlaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CihazBilgileriniDuzenleForm.resx">
+      <DependentUpon>CihazBilgileriniDuzenleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CihazTanimlaForm.resx">
+      <DependentUpon>CihazTanimlaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MusteriBilgileriniDuzenleForm.resx">
+      <DependentUpon>MusteriBilgileriniDuzenleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MusteriTanimlaForm.resx">
+      <DependentUpon>MusteriTanimlaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParcaBilgileriniDuzenleForm.resx">
+      <DependentUpon>ParcaBilgileriniDuzenleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParcaTanimlaForm.resx">
+      <DependentUpon>ParcaTanimlaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -141,8 +216,8 @@
     </Content>
     <Content Include="ServisEntity.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ServisEntity.Context.cs</LastGenOutput>
       <DependentUpon>ServisEntity.edmx</DependentUpon>
+      <LastGenOutput>ServisEntity.Context.cs</LastGenOutput>
     </Content>
     <Content Include="ServisEntity.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

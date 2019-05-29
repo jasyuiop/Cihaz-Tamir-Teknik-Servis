@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ServisModelStoreContainer" CdmEntityContainer="ServisEntities1">
+    <EntitySetMapping Name="Arizas">
+      <EntityTypeMapping TypeName="ServisModel.Ariza">
+        <MappingFragment StoreEntitySet="Ariza">
+          <ScalarProperty Name="Ariza_Id" ColumnName="Ariza_Id" />
+          <ScalarProperty Name="Ariza_Tanimi" ColumnName="Ariza_Tanimi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cihazs">
+      <EntityTypeMapping TypeName="ServisModel.Cihaz">
+        <MappingFragment StoreEntitySet="Cihaz">
+          <ScalarProperty Name="Cihaz_Id" ColumnName="Cihaz_Id" />
+          <ScalarProperty Name="Cihaz_Marka" ColumnName="Cihaz_Marka" />
+          <ScalarProperty Name="Cihaz_Model" ColumnName="Cihaz_Model" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Musterilers">
+      <EntityTypeMapping TypeName="ServisModel.Musteriler">
+        <MappingFragment StoreEntitySet="Musteriler">
+          <ScalarProperty Name="Musteri_Id" ColumnName="Musteri_Id" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+          <ScalarProperty Name="Telno" ColumnName="Telno" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="Cihaz_Id" ColumnName="Cihaz_Id" />
+          <ScalarProperty Name="Imei" ColumnName="Imei" />
+          <ScalarProperty Name="Ariza_Id" ColumnName="Ariza_Id" />
+          <ScalarProperty Name="Parca_Id" ColumnName="Parca_Id" />
+          <ScalarProperty Name="Tutar" ColumnName="Tutar" />
+          <ScalarProperty Name="Servis_Teslim" ColumnName="Servis_Teslim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Parcas">
+      <EntityTypeMapping TypeName="ServisModel.Parca">
+        <MappingFragment StoreEntitySet="Parca">
+          <ScalarProperty Name="Parca_Id" ColumnName="Parca_Id" />
+          <ScalarProperty Name="Parca_Adi" ColumnName="Parca_Adi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

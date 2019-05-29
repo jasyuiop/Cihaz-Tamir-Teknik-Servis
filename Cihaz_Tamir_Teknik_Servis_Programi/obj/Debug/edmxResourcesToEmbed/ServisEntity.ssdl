@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ServisModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Ariza">
+    <Key>
+      <PropertyRef Name="Ariza_Id" />
+    </Key>
+    <Property Name="Ariza_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ariza_Tanimi" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Cihaz">
+    <Key>
+      <PropertyRef Name="Cihaz_Id" />
+    </Key>
+    <Property Name="Cihaz_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cihaz_Marka" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cihaz_Model" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Musteriler">
+    <Key>
+      <PropertyRef Name="Musteri_Id" />
+    </Key>
+    <Property Name="Musteri_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Soyad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telno" Type="nvarchar" MaxLength="11" />
+    <Property Name="Mail" Type="nvarchar" MaxLength="50" />
+    <Property Name="Adres" Type="nvarchar(max)" />
+    <Property Name="Cihaz_Id" Type="int" />
+    <Property Name="Imei" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ariza_Id" Type="int" />
+    <Property Name="Parca_Id" Type="int" />
+    <Property Name="Tutar" Type="int" />
+    <Property Name="Servis_Teslim" Type="date" />
+  </EntityType>
+  <EntityType Name="Parca">
+    <Key>
+      <PropertyRef Name="Parca_Id" />
+    </Key>
+    <Property Name="Parca_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Parca_Adi" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Musteriler_To_Ariza_ArzId">
+    <End Role="Ariza" Type="Self.Ariza" Multiplicity="0..1" />
+    <End Role="Musteriler" Type="Self.Musteriler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ariza">
+        <PropertyRef Name="Ariza_Id" />
+      </Principal>
+      <Dependent Role="Musteriler">
+        <PropertyRef Name="Ariza_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Musteriler_To_Cihaz_CihId">
+    <End Role="Cihaz" Type="Self.Cihaz" Multiplicity="0..1" />
+    <End Role="Musteriler" Type="Self.Musteriler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cihaz">
+        <PropertyRef Name="Cihaz_Id" />
+      </Principal>
+      <Dependent Role="Musteriler">
+        <PropertyRef Name="Cihaz_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Musteriler_To_Parca_PrcId">
+    <End Role="Parca" Type="Self.Parca" Multiplicity="0..1" />
+    <End Role="Musteriler" Type="Self.Musteriler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Parca">
+        <PropertyRef Name="Parca_Id" />
+      </Principal>
+      <Dependent Role="Musteriler">
+        <PropertyRef Name="Parca_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ServisModelStoreContainer">
+    <EntitySet Name="Ariza" EntityType="Self.Ariza" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cihaz" EntityType="Self.Cihaz" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Musteriler" EntityType="Self.Musteriler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Parca" EntityType="Self.Parca" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Musteriler_To_Ariza_ArzId" Association="Self.FK_Musteriler_To_Ariza_ArzId">
+      <End Role="Ariza" EntitySet="Ariza" />
+      <End Role="Musteriler" EntitySet="Musteriler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Musteriler_To_Cihaz_CihId" Association="Self.FK_Musteriler_To_Cihaz_CihId">
+      <End Role="Cihaz" EntitySet="Cihaz" />
+      <End Role="Musteriler" EntitySet="Musteriler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Musteriler_To_Parca_PrcId" Association="Self.FK_Musteriler_To_Parca_PrcId">
+      <End Role="Parca" EntitySet="Parca" />
+      <End Role="Musteriler" EntitySet="Musteriler" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
