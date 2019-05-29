@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ServisModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Ariza">
+          <Key>
+            <PropertyRef Name="Ariza_Id" />
+          </Key>
+          <Property Name="Ariza_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ariza_Tanimi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Cihaz">
+          <Key>
+            <PropertyRef Name="Cihaz_Id" />
+          </Key>
+          <Property Name="Cihaz_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cihaz_Marka" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cihaz_Model" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Musteriler">
+          <Key>
+            <PropertyRef Name="Musteri_Id" />
+          </Key>
+          <Property Name="Musteri_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad" Type="nvarchar" MaxLength="50" />
+          <Property Name="Soyad" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telno" Type="nvarchar" MaxLength="11" />
+          <Property Name="Mail" Type="nvarchar" MaxLength="50" />
+          <Property Name="Adres" Type="nvarchar(max)" />
+          <Property Name="Cihaz_Id" Type="int" />
+          <Property Name="Imei" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ariza_Id" Type="int" />
+          <Property Name="Parca_Id" Type="int" />
+          <Property Name="Tutar" Type="int" />
+          <Property Name="Servis_Teslim" Type="date" />
+        </EntityType>
+        <EntityType Name="Parca">
+          <Key>
+            <PropertyRef Name="Parca_Id" />
+          </Key>
+          <Property Name="Parca_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Parca_Adi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Musteriler_To_Ariza_ArzId">
+          <End Role="Ariza" Type="Self.Ariza" Multiplicity="0..1" />
+          <End Role="Musteriler" Type="Self.Musteriler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ariza">
+              <PropertyRef Name="Ariza_Id" />
+            </Principal>
+            <Dependent Role="Musteriler">
+              <PropertyRef Name="Ariza_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Musteriler_To_Cihaz_CihId">
+          <End Role="Cihaz" Type="Self.Cihaz" Multiplicity="0..1" />
+          <End Role="Musteriler" Type="Self.Musteriler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cihaz">
+              <PropertyRef Name="Cihaz_Id" />
+            </Principal>
+            <Dependent Role="Musteriler">
+              <PropertyRef Name="Cihaz_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Musteriler_To_Parca_PrcId">
+          <End Role="Parca" Type="Self.Parca" Multiplicity="0..1" />
+          <End Role="Musteriler" Type="Self.Musteriler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Parca">
+              <PropertyRef Name="Parca_Id" />
+            </Principal>
+            <Dependent Role="Musteriler">
+              <PropertyRef Name="Parca_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ServisModelStoreContainer">
+          <EntitySet Name="Ariza" EntityType="Self.Ariza" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cihaz" EntityType="Self.Cihaz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Musteriler" EntityType="Self.Musteriler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Parca" EntityType="Self.Parca" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Musteriler_To_Ariza_ArzId" Association="Self.FK_Musteriler_To_Ariza_ArzId">
+            <End Role="Ariza" EntitySet="Ariza" />
+            <End Role="Musteriler" EntitySet="Musteriler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Musteriler_To_Cihaz_CihId" Association="Self.FK_Musteriler_To_Cihaz_CihId">
+            <End Role="Cihaz" EntitySet="Cihaz" />
+            <End Role="Musteriler" EntitySet="Musteriler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Musteriler_To_Parca_PrcId" Association="Self.FK_Musteriler_To_Parca_PrcId">
+            <End Role="Parca" EntitySet="Parca" />
+            <End Role="Musteriler" EntitySet="Musteriler" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ServisModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Ariza">
+          <Key>
+            <PropertyRef Name="Ariza_Id" />
+          </Key>
+          <Property Name="Ariza_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ariza_Tanimi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Musterilers" Relationship="Self.FK_Musteriler_To_Ariza_ArzId" FromRole="Ariza" ToRole="Musteriler" />
+        </EntityType>
+        <EntityType Name="Cihaz">
+          <Key>
+            <PropertyRef Name="Cihaz_Id" />
+          </Key>
+          <Property Name="Cihaz_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cihaz_Marka" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cihaz_Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Musterilers" Relationship="Self.FK_Musteriler_To_Cihaz_CihId" FromRole="Cihaz" ToRole="Musteriler" />
+        </EntityType>
+        <EntityType Name="Musteriler">
+          <Key>
+            <PropertyRef Name="Musteri_Id" />
+          </Key>
+          <Property Name="Musteri_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telno" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Cihaz_Id" Type="Int32" />
+          <Property Name="Imei" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ariza_Id" Type="Int32" />
+          <Property Name="Parca_Id" Type="Int32" />
+          <Property Name="Tutar" Type="Int32" />
+          <Property Name="Servis_Teslim" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Ariza" Relationship="Self.FK_Musteriler_To_Ariza_ArzId" FromRole="Musteriler" ToRole="Ariza" />
+          <NavigationProperty Name="Cihaz" Relationship="Self.FK_Musteriler_To_Cihaz_CihId" FromRole="Musteriler" ToRole="Cihaz" />
+          <NavigationProperty Name="Parca" Relationship="Self.FK_Musteriler_To_Parca_PrcId" FromRole="Musteriler" ToRole="Parca" />
+        </EntityType>
+        <EntityType Name="Parca">
+          <Key>
+            <PropertyRef Name="Parca_Id" />
+          </Key>
+          <Property Name="Parca_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Parca_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Musterilers" Relationship="Self.FK_Musteriler_To_Parca_PrcId" FromRole="Parca" ToRole="Musteriler" />
+        </EntityType>
+        <Association Name="FK_Musteriler_To_Ariza_ArzId">
+          <End Role="Ariza" Type="Self.Ariza" Multiplicity="0..1" />
+          <End Role="Musteriler" Type="Self.Musteriler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ariza">
+              <PropertyRef Name="Ariza_Id" />
+            </Principal>
+            <Dependent Role="Musteriler">
+              <PropertyRef Name="Ariza_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Musteriler_To_Cihaz_CihId">
+          <End Role="Cihaz" Type="Self.Cihaz" Multiplicity="0..1" />
+          <End Role="Musteriler" Type="Self.Musteriler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cihaz">
+              <PropertyRef Name="Cihaz_Id" />
+            </Principal>
+            <Dependent Role="Musteriler">
+              <PropertyRef Name="Cihaz_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Musteriler_To_Parca_PrcId">
+          <End Role="Parca" Type="Self.Parca" Multiplicity="0..1" />
+          <End Role="Musteriler" Type="Self.Musteriler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Parca">
+              <PropertyRef Name="Parca_Id" />
+            </Principal>
+            <Dependent Role="Musteriler">
+              <PropertyRef Name="Parca_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ServisEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Arizas" EntityType="Self.Ariza" />
+          <EntitySet Name="Cihazs" EntityType="Self.Cihaz" />
+          <EntitySet Name="Musterilers" EntityType="Self.Musteriler" />
+          <EntitySet Name="Parcas" EntityType="Self.Parca" />
+          <AssociationSet Name="FK_Musteriler_To_Ariza_ArzId" Association="Self.FK_Musteriler_To_Ariza_ArzId">
+            <End Role="Ariza" EntitySet="Arizas" />
+            <End Role="Musteriler" EntitySet="Musterilers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Musteriler_To_Cihaz_CihId" Association="Self.FK_Musteriler_To_Cihaz_CihId">
+            <End Role="Cihaz" EntitySet="Cihazs" />
+            <End Role="Musteriler" EntitySet="Musterilers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Musteriler_To_Parca_PrcId" Association="Self.FK_Musteriler_To_Parca_PrcId">
+            <End Role="Parca" EntitySet="Parcas" />
+            <End Role="Musteriler" EntitySet="Musterilers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ServisModelStoreContainer" CdmEntityContainer="ServisEntities">
+          <EntitySetMapping Name="Arizas">
+            <EntityTypeMapping TypeName="ServisModel.Ariza">
+              <MappingFragment StoreEntitySet="Ariza">
+                <ScalarProperty Name="Ariza_Id" ColumnName="Ariza_Id" />
+                <ScalarProperty Name="Ariza_Tanimi" ColumnName="Ariza_Tanimi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cihazs">
+            <EntityTypeMapping TypeName="ServisModel.Cihaz">
+              <MappingFragment StoreEntitySet="Cihaz">
+                <ScalarProperty Name="Cihaz_Id" ColumnName="Cihaz_Id" />
+                <ScalarProperty Name="Cihaz_Marka" ColumnName="Cihaz_Marka" />
+                <ScalarProperty Name="Cihaz_Model" ColumnName="Cihaz_Model" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Musterilers">
+            <EntityTypeMapping TypeName="ServisModel.Musteriler">
+              <MappingFragment StoreEntitySet="Musteriler">
+                <ScalarProperty Name="Musteri_Id" ColumnName="Musteri_Id" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+                <ScalarProperty Name="Telno" ColumnName="Telno" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Cihaz_Id" ColumnName="Cihaz_Id" />
+                <ScalarProperty Name="Imei" ColumnName="Imei" />
+                <ScalarProperty Name="Ariza_Id" ColumnName="Ariza_Id" />
+                <ScalarProperty Name="Parca_Id" ColumnName="Parca_Id" />
+                <ScalarProperty Name="Tutar" ColumnName="Tutar" />
+                <ScalarProperty Name="Servis_Teslim" ColumnName="Servis_Teslim" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parcas">
+            <EntityTypeMapping TypeName="ServisModel.Parca">
+              <MappingFragment StoreEntitySet="Parca">
+                <ScalarProperty Name="Parca_Id" ColumnName="Parca_Id" />
+                <ScalarProperty Name="Parca_Adi" ColumnName="Parca_Adi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
