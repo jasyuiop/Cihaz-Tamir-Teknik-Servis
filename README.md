@@ -1,4 +1,5 @@
-# Cihaz-Tamir-Teknik-Servis
+# Cihaz Tamir Teknik Servis Programı
+
 # Gerekenler
 * .Net framework 4.7.2+
 * Windows 10 
